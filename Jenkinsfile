@@ -1,13 +1,13 @@
 pipeline{
     agent any
-    
-    stage('Run Docker Compose File')
-    {
-        sh 'sudo docker-compose build'
-        sh 'sudo docker-compose up -d'
-    }
-  stage('PUSH image to Docker Hub')
-    {
+    stages{
+        stage('Run Docker Compose File')
+        {
+            sh 'sudo docker-compose build'
+            sh 'sudo docker-compose up -d'
+        }
+        stage('PUSH image to Docker Hub')
+        {
       /* withCredentials([string(credentialsId: 'DockerHubPassword', variable: 'DHPWD')]) 
         {
             sh "docker login -u upasanatestdocker -p ${DHPWD}"
@@ -22,5 +22,6 @@ pipeline{
              sh 'sudo docker push upasanatestdocker/job1_web2.0'
             // sh 'docker push upasanatestdocker/mysql'
           
-    }
+        }
+}
 }
