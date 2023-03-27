@@ -1,4 +1,5 @@
-node{
+pipeline{
+    agent any
     
     stage('Run Docker Compose File')
     {
