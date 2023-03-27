@@ -4,8 +4,8 @@ pipeline{
         stage('Run Docker Compose File')
         {
             steps{
-            sh 'sudo docker-compose build'
-            sh 'sudo docker-compose up -d'
+            sh 'sudo /usr/bin/docker-compose build'
+            sh 'sudo /usr/bin/docker-compose up -d'
             }
         }
         stage('PUSH image to Docker Hub')
